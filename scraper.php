@@ -24,11 +24,11 @@
 // called "data".3
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
-$Alpha	=	array('AB');
+$Alpha	=	array('ID');
 $url = 'http://islamabadexcise.gov.pk/VEH_REG/VEH_QUERY.asp?X=';
 for ($outterloop = 0; $outterloop < sizeof($Alpha); $outterloop++) 
 {
-for ($innerloop = 100; $innerloop <103; $innerloop++) 
+for ($innerloop = 100; $innerloop <10000; $innerloop++) 
 {
 $NewLink	=	$url . $Alpha[$outterloop] . '&Y=' . $innerloop;
 $html 		= file_get_html($NewLink);
@@ -40,8 +40,8 @@ foreach($html->find("/html/body/div/table/tbody/tr[1]/td/form/table/tbody/tr[7]/
 		 $reg_date 		= $element->find("tr/td[2]/font" ,2)->plaintext;
 		 $maker 		= $element->find("tr/td[2]/font" ,4)->plaintext;
 		 $model 		= $element->find("tr/td[2]/font" ,6)->plaintext;
-		 $chassis_no	= $element->find("tr/td[2]/font" ,8)->plaintext;
-		 $engine_no 	= $element->find("tr/td[2]/font" ,10)->plaintext;
+		 $chassis_no		= $element->find("tr/td[2]/font" ,8)->plaintext;
+		 $engine_no 		= $element->find("tr/td[2]/font" ,10)->plaintext;
 		 $owner 		= $element->find("tr/td[2]/font" ,12)->plaintext;
 		 $sw 			= $element->find("tr/td[2]/font" ,14)->plaintext;
 		 $type 			= $element->find("tr/td[2]/font" ,16)->plaintext; 
